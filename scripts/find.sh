@@ -26,7 +26,7 @@ do
     else
         for((i=0;i<255;i++))
         do
-            ./getssl.sh ${n}.${i}
+            ./getssl.sh ${n}.${i} &
         done
     fi
 done

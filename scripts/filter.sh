@@ -28,4 +28,4 @@ fi
 
 p=${1//\./\\\.}
 p=${p//\*/\\\*}
-grep -Ph "\s$p$" output/* | sort -k2n -k3n
+grep -Ph "\d%.*\s$p$" output/* | sort -k2n -k3n
