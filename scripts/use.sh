@@ -19,7 +19,10 @@ then
     exit 0
 fi
 
-if [ "$(echo $1 | cut -d . -f 1)" = "*" ]
+if [ "$1" = "*.google.com"  ]
+then
+    sed -i -r "s/.*?    (.*)$/$2    \1/" hosts.all
+elif [ "$(echo $1 | cut -d . -f 1)" = "*" ]
 then
     p=${1//\./\\\.}
     sed -i -r "s/.*?    (.$p)$/$2    \1/" hosts.all

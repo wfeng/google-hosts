@@ -29,6 +29,7 @@ domains="
     *.google-analytics.com
     ssl.google-analytics.com
     "
+domains=$(grep '\S' domains.txt)
 filter_data=/tmp/filter.sh.data
 for domain in $domains
 do
@@ -63,16 +64,5 @@ do
     elif [ $domain = "*.appspot.com" ]
     then
         ./use.sh appspot.com $ip
-    elif [ $domain = "*.google.com" ]
-    then
-        ./use.sh google.com $ip
-        for host in $(grep "cn$" hosts.all | awk '{print $2}')
-        do
-            ./use.sh $host $ip
-        done
-        for host in $(grep "hk$" hosts.all | awk '{print $2}')
-        do
-            ./use.sh $host $ip
-        done
     fi
 done
